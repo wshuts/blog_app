@@ -1,3 +1,8 @@
+from blog.models import Article
+
+
 class ListArticlesQuery:
-    def execute(self):
-        pass
+    @staticmethod
+    def execute():
+        articles = Article.list()
+        return articles
