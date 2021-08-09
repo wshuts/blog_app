@@ -7,7 +7,7 @@ from blog.models import Article
 
 class ListArticlesQuery:
     @staticmethod
-    def execute() -> List['Article']:
+    def execute() -> List[Article]:
         articles = Article.list()
         return articles
 
