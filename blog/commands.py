@@ -22,7 +22,7 @@ class CreateArticleCommand(BaseModel):
         article = Article(
             author=self.author,
             title=self.title,
-            content=self.title
+            content=self.content
         ).save()
 
         return article
