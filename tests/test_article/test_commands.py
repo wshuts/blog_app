@@ -4,6 +4,25 @@ from blog.models import Article
 from blog.commands import CreateArticleCommand, AlreadyExists
 
 
+def test_article_constructor():
+
+    author = 'john@doe.com'
+    title = 'New Article'
+    content = 'Super awesome article'
+
+    cmd = CreateArticleCommand(
+        author=author,
+        title=title,
+        content=content
+    )
+
+    article = cmd.execute()
+
+    assert article.author == author
+    assert article.title == title
+    assert article.content == content
+
+
 def test_create_article():
     """
     GIVEN CreateArticleCommand with a valid properties author, title and content
