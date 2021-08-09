@@ -17,7 +17,7 @@ class Article(BaseModel):
     content: str
 
     @classmethod
-    def get_by_id(cls, article_id: str):
+    def get_by_id(cls, article_id: str) -> 'Article':
         con = sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db'))
         con.row_factory = sqlite3.Row
 
@@ -35,7 +35,7 @@ class Article(BaseModel):
         return article
 
     @classmethod
-    def get_by_title(cls, title: str):
+    def get_by_title(cls, title: str) -> 'Article':
         con = sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db'))
         con.row_factory = sqlite3.Row
 
@@ -78,7 +78,7 @@ class Article(BaseModel):
         return self
 
     @classmethod
-    def create_table(cls, database_name='database.db'):
+    def create_table(cls, database_name='database.db') -> None:
         conn = sqlite3.connect(database_name)
 
         conn.execute(

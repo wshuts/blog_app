@@ -1,3 +1,5 @@
+from typing import List
+
 from pydantic import BaseModel
 
 from blog.models import Article
@@ -5,7 +7,7 @@ from blog.models import Article
 
 class ListArticlesQuery:
     @staticmethod
-    def execute():
+    def execute() -> List['Article']:
         articles = Article.list()
         return articles
 
